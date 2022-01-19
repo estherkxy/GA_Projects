@@ -129,7 +129,7 @@ While the `Multinomial Naive Bayes` model with `CountVectorizer` is better at mi
 ### Final Model Selected:
 -----
 
-- `LogisticRegression` with Ridge regularization($\alpha$ = 0.1 | C = 10)
+- `LogisticRegression` with Ridge regularization (alpha = 0.1 | C = 10)
 - Uses `TfidfVectorization` with no max feature limit
 - Includes only words or n-grams that appear in at least 3 posts
 - Excludes stop words and ignores terms that that appear in more than 40% of posts
