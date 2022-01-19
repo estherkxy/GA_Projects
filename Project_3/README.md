@@ -6,7 +6,7 @@
 
 ## Problem Statement
 -----
-A start-up sellign audio equipment wishes to create a website that includes a chatbot that can help direct customers to the items closest to what they are looking for. However, they are unsure of how to do the classification and has outsourced this to us to create a machine learning model which can identify keywords used with specific audio equipment to better filter choices for more likely purchases and also for potential upselling or related equipment items. 
+A start-up selling audio equipment wishes to create a website that includes a chatbot that can help direct customers to the items closest to what they are looking for. However, they are unsure of how to do the classification and has outsourced this to us to create a machine learning model which can identify keywords used with specific audio equipment to better filter choices for more likely purchases and also for potential upselling or related equipment items. 
 
 
 ## Introduction:
@@ -40,6 +40,8 @@ A few functions were created. Firstly, a function was created to remove unnecess
 Next, a function was created to remove HTML links, remove characters that are not letters, lower cases all the words, split them up into individual tokens without officially tokenizing, remove the stopwords. I tried both lemmatization and stemming the words but ended up commenting out the stemmer because I decided on using the lemmatizer.
 
 Lastly, for the analysis of n-grams, a function was also created to get the top n-grams from the two topics. `CountVectorizer` was used here.
+
+<img src="/../images/top10words_earbuds.jpg" alt="r/Earbuds Top 10 words" style="height: 100px; width:100px;"/>
 
 ![Alt text](../images/top10words_earbuds.jpg?raw=true "r/Earbuds Top 10 words") ![Alt text](../images/top10words_headphones.jpg?raw=true "r/Headphones Top 10 words")
 
