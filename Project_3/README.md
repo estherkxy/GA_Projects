@@ -41,16 +41,15 @@ Next, a function was created to remove HTML links, remove characters that are no
 
 Lastly, for the analysis of n-grams, a function was also created to get the top n-grams from the two topics. `CountVectorizer` was used here.
 
-<img src="/../images/top10words_earbuds.jpg" alt="r/Earbuds Top 10 words" style="height: 100px; width:100px;"/>
-
-![Alt text](../images/top10words_earbuds.jpg?raw=true "r/Earbuds Top 10 words") ![Alt text](../images/top10words_headphones.jpg?raw=true "r/Headphones Top 10 words")
-
-![Alt text](../images/top10trigrams_earbuds.jpg?raw=true "r/Earbuds Top 10 trigrams") ![Alt text](../images/top10trigrams_headphones.jpg?raw=true "r/Headphones Top 10 trigrams")
+![](images/top10words.png)
+![](images/top10trigrams.png)
 
 Note:
 * anc = active noise cancellation
 * amp = amplifier
 * dac = digital to analogue converter
+
+The main takeaway from this is that n-grams relating to r/Earbuds generally relate to earbuds models/brands. For example, when looking at the top 10 trigrams for r/Earbuds, 8 out of 10 trigrams were earbud models/brands. On the other hand, n-grams relating to r/Headphones have a wider range of audio terminology which includes model/brands and other equipment (amplifiers or filters).
 
 One interesting thing to note here is that there are two trigrams (`fones de ouvido` and `os fones de`) which are in Portugese but a quick google search shows that these two trigrams can translate to either 'headphones' or 'earbuds'. It seems that in Portugese, there is no separate word for the two terms and its meaning can only be interpreted from the context in which its being used. 
 
@@ -126,37 +125,20 @@ We can see in the table above that `LogisticRegression` with `TfidfVectorizer` r
 
 While the `Multinomial Naive Bayes` model with `CountVectorizer` is better at minimizing false positives (predicted `r/Headphones` but actually `r/Earbuds` posts) with 19 false positives noted. The `LogisticRegression` model with `TfidfVectorizer` still wins overall in terms of test accuracy and f-score.
 
-To summarize, our final model:
+-----
+### Final Model Selected:
+-----
 
+- `LogisticRegression` with Ridge regularization($\alpha$ = 0.1 | C = 10)
 - Uses `TfidfVectorization` with no max feature limit
 - Includes only words or n-grams that appear in at least 3 posts
 - Excludes stop words and ignores terms that that appear in more than 40% of posts
-- Uses `LogisticRegression` with Ridge regularization($\alpha$ = 0.1 | C = 10)
-
-Our model is still slightly overfitted as indicated by the slight gap between training and test scores but with limited time and resources, this seems to be the best our models can do. 
 
 
+Our model is still slightly overfitted as indicated by the slight gap between training and test scores but with limited time and resources, this seems to be the best our model can do. 
 
 
------
-### Recommendations:
------
-Based on the model, there are several ways to increase the value of a house in Ames (for sellers):
-- Renovate to improve the overall, basement and exterior quality of the house
-- Improve grade of the bathrooms
-- Increase the number of Fireplaces
-- Increase the garage size to fit more than one car
-- If using a hard board exterior, switch to cement or brick instead
 
-Based on the model, there are several ways to efficiently look for a lower value house in Ames (for buyers):
-- Avoid neighbourhood such as Northridge Heights, Stone Brook and Northridge.
-- Instead go for neighbourhood such as Gilbert. 
-- Look for 1 story houses built in 1946 and after, as part of a planned unit development
-- Houses with a split level style of dwelling
-
------
-### Model Limitations:
------
 
 
 
