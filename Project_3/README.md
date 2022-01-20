@@ -155,7 +155,7 @@ However, it is to note that even with this limitation with the datasets, there w
 
 Likewise, for r/Headphones, the general n-grams used were mostly audio equipment (amplifiers and filters) related. This could help with potential upselling when a customer searches for the headphones to buy as the chatbot could also provide a prompt where the related items are suggested for purchase together with the headphones set. 
 
-Model selection wise, some of the limitations were mostly related to time and resource constraints whereby using a `GridSearchCV` with all the hyper parameters for tuning is not feasible. As such, some variations with a better scoring may be missed out upon. However, given the reasonably high accuracy score achieved in this model, the current selection is deemed to be accpetable for a preliminary project. 
+Model selection wise, some of the limitations were mostly related to time and resource constraints whereby using a `GridSearchCV` with all the hyper parameters for tuning is not feasible. As such, some variations with a better scoring may be missed out upon. However, given the reasonably high accuracy score achieved in this model, the current selection is deemed to be acceptable for a preliminary project. 
 
 In order to further improve the model in future projects, it would be ideal to train the model to recognize a wider range of n-grams relating to the individual items. This would involve obtaining a larger and more reliable dataset.  
 
