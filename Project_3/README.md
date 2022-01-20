@@ -117,13 +117,15 @@ Final model results (after fine tuning):
 |---:|:--------|:-------------|------:|------:|------:|---------:|------:|-------:|
 |  0 | lr      | tvec         | 0.930 | 0.914 | 0.914 |    0.887 | 0.948 |  0.917 |
 |  1 | nb      | cvec         | 0.941 | 0.905 | 0.905 |    0.938 | 0.867 |  0.901 |
-|  2 | svc     | tvec         | 0.969 | 0.902 | 0.902 |    0.882 | 0.927 |  0.904 |
-|  3 | lr      | cvec         | 0.963 | 0.886 | 0.886 |    0.844 | 0.948 |  0.893 |
+|  2 | rf      | tvec         | 0.996 | 0.905 | 0.905 |    0.885 | 0.930 |  0.907 |
+|  3 | svc     | tvec         | 0.969 | 0.902 | 0.902 |    0.882 | 0.927 |  0.904 |
+|  4 | rf      | cvec         | 0.996 | 0.892 | 0.892 |    0.880 | 0.909 |  0.894 |
+|  5 | lr      | cvec         | 0.963 | 0.886 | 0.886 |    0.844 | 0.948 |  0.893 |
 
 
 We can see in the table above that `LogisticRegression` with `TfidfVectorizer` returned the highest R2 accuracy -- in short, our model is able accurately predict 91.3% of the test data based on our text features. The model also has the best AUC-ROC score. We can interpret this metric as proof that that this model is the best at distinguishing between classes. The model does particularly very well in terms of recall, with only 17 false negatives (predicted `r/Earbuds` but actually `r/Headphones` posts).
 
-The `RandomForrestClassifier` models return training scores of close to 100% but the test scores at best were only close to 91%. This shows that there is too much overfitting and may not be an ideal model especially if this is not the real dataset to be used for the model.  
+The `RandomForrestClassifier` models return training scores of close to 100% but the test scores at best were only close to 90%. This shows that there is too much overfitting and may not be an ideal model especially if this is not the real dataset to be used for the model.  
 
 While the `Multinomial Naive Bayes` model with `CountVectorizer` is better at minimizing false positives (predicted `r/Headphones` but actually `r/Earbuds` posts) with 19 false positives noted. The `LogisticRegression` model with `TfidfVectorizer` still wins overall in terms of test accuracy and f-score.
 
