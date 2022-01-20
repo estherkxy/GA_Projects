@@ -33,7 +33,7 @@ Firstly, I did a quick analysis on the distribution of the type of posts in each
 
 A quick analysis of the title lengths and post lengths was also done and it was noted that `r/Earbuds` generally has slightly shorter title and posts lengths than `r/Headphones`. 
 
-As the text we just gathered is unstructured data, we need to make sure that our text is clean and free of null values. This also entails removing HTML links and non-alphanumerical characters that won't be useful in a classification model.
+As the text we just gathered is unstructured data, we need to make sure that our text is clean and free of null values. This also entails removing HTML links and non-alphanumeric characters that won't be useful in a classification model.
 
 A few functions were created. Firstly, a function was created to remove unnecessary columns leaving only the `subreddit`, `title` and `selftext` columns. Those empty `selftext` columns were filled with the `title` under a new column `post` and the rest were added in by joining the `title` and `selftext` columns. 
 
