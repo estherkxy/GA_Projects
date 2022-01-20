@@ -23,7 +23,7 @@ For this project, I selected two subreddits that are within the same main catego
 -----
 ###  Datasets:
 -----
-To get the necessary posts for this project, I scrapped 1000 'hot' or popular posts from each subreddit ([`r/Earbuds`](https://www.reddit.com/r/Earbuds/) and [`r/Headphones`](https://www.reddit.com/r/headphones/)) using the Reddit's [Pushshift API](https://github.com/pushshift/api) which gives access to each subreddit's `.JSON`.
+To get the necessary posts for this project, I scrapped 1000 posts from each subreddit ([`r/Earbuds`](https://www.reddit.com/r/Earbuds/) and [`r/Headphones`](https://www.reddit.com/r/headphones/)) using the Reddit's [Pushshift API](https://github.com/pushshift/api) which gives access to each subreddit's `.JSON`.
 
 
 -----
