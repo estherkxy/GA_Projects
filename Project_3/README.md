@@ -35,7 +35,7 @@ A quick analysis of the title lengths and post lengths was also done and it was 
 
 As the text we just gathered is unstructured data, we need to make sure that our text is clean and free of null values. This also entails removing HTML links and non-alphanumeric characters that won't be useful in a classification model.
 
-A few functions were created. Firstly, a function was created to remove unnecessary columns leaving only the `subreddit`, `title` and `selftext` columns. Those empty `selftext` columns were filled with the `title` under a new column `post` and the rest were added in by joining the `title` and `selftext` columns. 
+A few functions were created. Firstly, a function was created to remove unnecessary columns leaving only the `subreddit`, `title` and `selftext` columns. Those empty `selftext` rows were filled with the `title` under a new column `post` and the rest were added in by joining the `title` and `selftext` columns. 
 
 Next, a function was created to remove HTML links, remove characters that are not letters, lower cases all the words, split them up into individual tokens without officially tokenizing, remove the stopwords. I tried both lemmatization and stemming the words but ended up commenting out the stemmer because I decided on using the lemmatizer.
 
