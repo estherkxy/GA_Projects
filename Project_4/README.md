@@ -19,10 +19,14 @@ We will also aim to determine where and when to deploy pesticides throughout the
 
 ## Executive Summary
 
-Our top-performing model was a Logistic Regression model (Lasso Regularization with an $\alpha$ of 1.0), which achieved an AUC score of <b>0.787</b> on Kaggle. This placed us among the top 15% of all teams that participated in the competition. To achieve these results, we used a range of feature engineering, selection and oversampling techniques including Synthetic Minority Over-Sampling (SMOTE).
-Some of our best predictors were temperature-related features, such as `Tmax` and `WinterDepart`. Time-based features like `Week` and `Month` were also crucial in helping our model to identify the presence of the West Nile Virus. We also saw other weather-related variables like `humidlag4` play a role in our model. Location features like `Longitude` and trap location also played a minor role here.
+Our top-performing model was a Logistic Regression model (Lasso (L2) Regularization with an &alpha; of 0.1), which achieved an AUC score of <b>0.700</b> on Kaggle. In order to achieve these results, we used a range of feature engineering, selection techniques including adjusting for imbalanced data by using balanced class weightage. This was chosen over the Synthetic Minority Over-Sampling (SMOTE) oversampling technique as it produced a better Test AUC score as well as a better recall score. This indicated that the class weightage method was deemed to be more effective than SMOTE as it produced a model with a better model fit and less false negatives produced. 
 
-<img src='./assets/final_model_2.png' content-align="center" width="80%">
+We also noted that the time lag features created seem to have the strongest in predicting if there is presence of west nile virus or not. The other strong predictors seem to be related to temperature, which corroborates with our findings during EDA. For example, after looking at the coefficients of the features, we noted that a good number of our top predictors were temperature-related features such as `templag2`, `tavg` and `cool`. In addition, weather-related features such as `rel_humidity` and `rainlag2`. There were also some time-based features that seem to be of importance when attempting to predict the presence of the WNV such as `week`. 
+
+With the created time lag features from the temperature, rainfall and humidity features showing more predictive power, it is then possible to assume that the mentioned features can be viewed as potential lead indicators of the virus occurrence. A lead indicator shows a change in direction before a corresponding change in the target variable. This assists in anticipating when the virus occurrences are on the rise before it even happens. 
+
+
+### Model Evluation
 
 <table class="dcf-table dcf-table-responsive dcf-table-bordered dcf-table-striped dcf-w-100%">
 	<caption>Model Results (Sorted by Test AUC)</caption>
@@ -40,118 +44,116 @@ Some of our best predictors were temperature-related features, such as `Tmax` an
 	<tbody>
 		<tr>
 			<td class="dcf-txt-center" data-label="Model">Logistic Regression</td>
-			<td class="dcf-txt-center" data-label="Train AUC">0.858627</td>
-			<td class="dcf-txt-center" data-label="Test AUC">0.823617</td>
-			<td class="dcf-txt-center" data-label="Precision">0.140553</td>
-			<td class="dcf-txt-center" data-label="Specificity">0.750251</td>
-			<td class="dcf-txt-center" data-label="Recall">0.739394</td>
-			<td class="dcf-txt-center" data-label="F-score">0.236205</td>
+			<td class="dcf-txt-center" data-label="Train AUC">0.844</td>
+			<td class="dcf-txt-center" data-label="Test AUC">0.827</td>
+			<td class="dcf-txt-center" data-label="Precision">0.134</td>
+			<td class="dcf-txt-center" data-label="Specificity">0.722</td>
+			<td class="dcf-txt-center" data-label="Recall">0.775</td>
+			<td class="dcf-txt-center" data-label="F-score">0.228</td>
 		</tr>
 		<tr>
 			<td class="dcf-txt-center" data-label="Model">Ada Boosting</td>
-			<td class="dcf-txt-center" data-label="Train AUC">0.961605</td>
-			<td class="dcf-txt-center" data-label="Test AUC">0.808654</td>
-			<td class="dcf-txt-center" data-label="Precision">0.157986</td>
-			<td class="dcf-txt-center" data-label="Specificity">0.837630</td>
-			<td class="dcf-txt-center" data-label="Recall">0.551515</td>
-			<td class="dcf-txt-center" data-label="F-score">0.245614</td>
+			<td class="dcf-txt-center" data-label="Train AUC">0.891</td>
+			<td class="dcf-txt-center" data-label="Test AUC">0.834</td>
+			<td class="dcf-txt-center" data-label="Precision">0.750</td>
+			<td class="dcf-txt-center" data-label="Specificity">0.999</td>
+			<td class="dcf-txt-center" data-label="Recall">0.021</td>
+			<td class="dcf-txt-center" data-label="F-score">0.042</td>
 		</tr>
 		<tr>
-			<td class="dcf-txt-center" data-label="Model">Extra Trees</td>
-			<td class="dcf-txt-center" data-label="Train AUC">0.974448</td>
-			<td class="dcf-txt-center" data-label="Test AUC">0.807757</td>
-			<td class="dcf-txt-center" data-label="Precision">0.148900</td>
-			<td class="dcf-txt-center" data-label="Specificity">0.831604</td>
-			<td class="dcf-txt-center" data-label="Recall">0.533333</td>
-			<td class="dcf-txt-center" data-label="F-score">0.232804</td>
+			<td class="dcf-txt-center" data-label="Model">XGBoost</td>
+			<td class="dcf-txt-center" data-label="Train AUC">0.942</td>
+			<td class="dcf-txt-center" data-label="Test AUC">0.827</td>
+			<td class="dcf-txt-center" data-label="Precision">0.134</td>
+			<td class="dcf-txt-center" data-label="Specificity">0.806</td>
+			<td class="dcf-txt-center" data-label="Recall">0.615</td>
+			<td class="dcf-txt-center" data-label="F-score">0.241</td>
 		</tr>
 		<tr>
 			<td class="dcf-txt-center" data-label="Model">Gradient Boosting</td>
-			<td class="dcf-txt-center" data-label="Train AUC">0.997995</td>
-			<td class="dcf-txt-center" data-label="Test AUC">0.801529</td>
-			<td class="dcf-txt-center" data-label="Precision">0.232673</td>
-			<td class="dcf-txt-center" data-label="Specificity">0.948108</td>
-			<td class="dcf-txt-center" data-label="Recall">0.284848</td>
-			<td class="dcf-txt-center" data-label="F-score">0.256131</td>
+			<td class="dcf-txt-center" data-label="Train AUC">0.992</td>
+			<td class="dcf-txt-center" data-label="Test AUC">0.799</td>
+			<td class="dcf-txt-center" data-label="Precision">0.301</td>
+			<td class="dcf-txt-center" data-label="Specificity">0.979</td>
+			<td class="dcf-txt-center" data-label="Recall">0.159</td>
+			<td class="dcf-txt-center" data-label="F-score">0.208</td>
 		</tr>
 		<tr>
 			<td class="dcf-txt-center" data-label="Model">Random Forest</td>
-			<td class="dcf-txt-center" data-label="Train AUC">0.992065</td>
-			<td class="dcf-txt-center" data-label="Test AUC">0.797336</td>
-			<td class="dcf-txt-center" data-label="Precision">0.177616</td>
-			<td class="dcf-txt-center" data-label="Specificity">0.886843</td>
-			<td class="dcf-txt-center" data-label="Recall">0.442424</td>
-			<td class="dcf-txt-center" data-label="F-score">0.253472</td>
+			<td class="dcf-txt-center" data-label="Train AUC">0.937</td>
+			<td class="dcf-txt-center" data-label="Test AUC">0.822</td>
+			<td class="dcf-txt-center" data-label="Precision">0.162</td>
+			<td class="dcf-txt-center" data-label="Specificity">0.840</td>
+			<td class="dcf-txt-center" data-label="Recall">0.557</td>
+			<td class="dcf-txt-center" data-label="F-score">0.252</td>
 		</tr>
 		<tr>
-			<td class="dcf-txt-center" data-label="Model">Support Vector Machine</td>
-			<td class="dcf-txt-center" data-label="Train AUC">0.938088</td>
-			<td class="dcf-txt-center" data-label="Test AUC">0.778879</td>
-			<td class="dcf-txt-center" data-label="Precision">0.140950</td>
-			<td class="dcf-txt-center" data-label="Specificity">0.806160</td>
-			<td class="dcf-txt-center" data-label="Recall">0.575758</td>
-			<td class="dcf-txt-center" data-label="F-score">0.226460</td>
+			<td class="dcf-txt-center" data-label="Model">Extra Trees</td>
+			<td class="dcf-txt-center" data-label="Train AUC">0.917</td>
+			<td class="dcf-txt-center" data-label="Test AUC">0.817</td>
+			<td class="dcf-txt-center" data-label="Precision">0.142</td>
+			<td class="dcf-txt-center" data-label="Specificity">0.778</td>
+			<td class="dcf-txt-center" data-label="Recall">0.666</td>
+			<td class="dcf-txt-center" data-label="F-score">0.235</td>
 		</tr>
 		<tr>
-			<td class="dcf-txt-center" data-label="Model">Decision Tree</td>
-			<td class="dcf-txt-center" data-label="Train AUC">0.989197</td>
-			<td class="dcf-txt-center" data-label="Test AUC">0.724557</td>
-			<td class="dcf-txt-center" data-label="Precision">0.157360</td>
-			<td class="dcf-txt-center" data-label="Specificity">0.888852</td>
-			<td class="dcf-txt-center" data-label="Recall">0.375758</td>
-			<td class="dcf-txt-center" data-label="F-score">0.221825</td>
+			<td class="dcf-txt-center" data-label="Model">Decision Trees</td>
+			<td class="dcf-txt-center" data-label="Train AUC">0.855</td>
+			<td class="dcf-txt-center" data-label="Test AUC">0.771</td>
+			<td class="dcf-txt-center" data-label="Precision">0.143</td>
+			<td class="dcf-txt-center" data-label="Specificity">0.793</td>
+			<td class="dcf-txt-center" data-label="Recall">0.623</td>
+			<td class="dcf-txt-center" data-label="F-score">0.233</td>
+		</tr>
+		<tr>
+			<td class="dcf-txt-center" data-label="Model">SVC</td>
+			<td class="dcf-txt-center" data-label="Train AUC">0.874</td>
+			<td class="dcf-txt-center" data-label="Test AUC">0.759</td>
+			<td class="dcf-txt-center" data-label="Precision">0.000</td>
+			<td class="dcf-txt-center" data-label="Specificity">1.000</td>
+			<td class="dcf-txt-center" data-label="Recall">0.000</td>
+			<td class="dcf-txt-center" data-label="F-score">0.000</td>
+		</tr>
+		<tr>
+			<td class="dcf-txt-center" data-label="Model">KNearestNeighbor</td>
+			<td class="dcf-txt-center" data-label="Train AUC">0.933</td>
+			<td class="dcf-txt-center" data-label="Test AUC">0.714</td>
+			<td class="dcf-txt-center" data-label="Precision">0.333</td>
+			<td class="dcf-txt-center" data-label="Specificity">0.990</td>
+			<td class="dcf-txt-center" data-label="Recall">0.086</td>
+			<td class="dcf-txt-center" data-label="F-score">0.137</td>
 		</tr>
 	</tbody>
 </table>
 
-We also chose the Logistic Regression model due to its high recall score. Given that the West Nile Virus can lead to human death, it's imperative for false negatives to be minimized and for true positives to be maximized. Our Logistic Regression model has by far the best recall score out of all the other models (0.74) though it has weak precision and specificity scores, we believe that this is a fair trade-off as 
-incorrectly predicting the lack of WNV can increase the chances of an outbreak, leading to potential snowball effects on hospitalization rates and the economy. 
+As mentioned earlier, one of the reasons we chose the Logistic Regression model was due to its high recall score. As the West Nile Virus can potentially lead to fatalities, it is of utmost importance that we aim to minimize our false negatives. Our Logistic Regression model has the best recall score of 0.775. It however, has slightly weaker precision and specificity scores as compared to the rest and in terms of Test AUC scoring, it was outperformed by the AdaBoost and XGBoost models. However the AdaBoost and XGBoost models have poor recall scores and as mentioned earlier, it is imperative that the false negatives are minimized to prevent cases from going undetected which may increase the probabilty of an outbreak which may then potentially have a snowball effect on the hosopitalisation rates. As such, we have determined that the Logistic Regression model is a fair trade-off where the model produced less false negative results without too much overfit and did not compromise too much on the specificity and precision scores.
 
+
+## Cost Benefit Analysis
+
+Comparing the cost to spray and the medical costs incurred because of WNV cases in a year, it is clear that the medical costs required to cover the WNV cases far exceed the costs to spray:
+
+#### Cost of spraying
+
+The cost of Zenivex E4 is about \\$80 per gallon ([North Dakota Department of Health, 2013](http://www.gfmosquito.com/wp-content/uploads/2013/06/2013-North-Dakota-Bid-Tabulation.pdf)). Given the current rate of spraying and assuming a total spray duration of 5 hours, the cost of pesticides for each sprayer truck is \\$843.76 - \\$1687.50. Given that the total area of Chicago is 606.1 km2, it would take about 1000 trucks at the same time to cover the entire area. This brings the cost of spraying to be around <b>\$843,760 - \$1,687,500</b>.
+
+#### Medical Costs
+	
+A rough estimate puts cost per WNV case at approximately \$33,143 per inpatient and approximately \$6,317 per outpatient for all treatments. Cost for each WNV patient estimated to have spent time in a nursing home was around \$18,097. Productivity loss during symptomatic WNND cost \\$10,800 per patient <60 years of age and \$7,500 per patient >60 years of age (Table 3). Total medical costs accrued by all WNND patients was around \$2,791,838; total costs for all cases (medical cost plus productivity loss) was much higher approximating at \$3,710,006. 
+([Barber LM, Schleier JJ 3rd, Peterson RK, 2010](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3322011/))
+
+
+As such, it seems that it is more cost-efficient to conduct more mosquito spraying in an attempt to lower medical costs incurred. However, we also looked into analysing the spray efficacy in order to determine if it is indeed a more cost efficient method to reduce costs incurred or whether a more effective alternative solution should be pursued further. While the data received for the spraying was only data for 2 years, we can see that spraying actually helped in curbing WNV occurences. 
+
+To conclude our cost-benefit analysis, we have evidence that despite some inadequate sprayings done in terms of location, overall, we can still see that spraying does in fact still help curb WNV in general. Considering the fact that medical costs are much higher than spraying costs, and that there are currently no specific medications to treat patients with WNV, it is thus important to make sure spraying operations are carried out at critical locations. Even though there will be higher spendage in spraying operations, increased spraying operations would most likely reduce the number of WNV occurences and patients, which would ultimately reduce medical costs and therefore overall costs.
+
+We will next proceed with recommendations based on our cost benefit analysis and predictive model.
 
 ## Recommendations
 
-Our model has shown that certain areas are particularly 'dense' in terms of WNV-positive pools and pool proximity. In conjunction to this, our model also predicted several traps that have an 80% probability or greater of a WNV outbreak. 
-We believe that the neighborhoods in which these traps are located should be an immediate focus for mosquito control efforts. These areas have been highlighted with a red circle below.
 
-We've extrapolated that these are the neighborhoods that have a high risk of WNV:
-- Elk Grove Village (7,500 acres)
-- Des Plains (9,000 acres)
-- Norridge (1,100 acres)
-- Lincolnwood (1,700 acres)
-- Stickney (1,200 acres)
-- Forest View (900 acres)
-- Morton Grove (3,100 acres)
 
-Around 24,500 acres of area in Chicago were identified as high risk, housing an approximate population of 148,500 people.
 
-<img src='./assets/kdeplot_80_locations_v3.jpg' content-align="center">
-
-We recommend using the following methods to deal with areas with a high WNV risk:
-
-<b>Automation with drones</b>
-
-Drones can serve multiple purposes when it comes to combatting WNV: 
-
-1. They can collect aerial images that can be analyzed and used to identify and map breeding sites—such as cisterns, pots and buckets, 
-old tires and flower pots. These images can be aggregated into accurate maps to support targeted application of larvicides 
-(insecticides that specifically target the larval stage of an insect) at these potential breeding sites.
-2. Once larval habitats are identified, drones can be equipped to carry and apply larvicides and/or adulticides to small targeted areas. 
-These drones can also be fitted with a global positioning system (GPS) that can track flight patterns in conjunction with insecticide application. 
-An operator can remotely pilot the drone or, in some cases, autopilot programs may be available for pre-programmed flights. Drones can be 
-useful to target specific areas with larvicides or adulticides, as an alternative to truck-mounted applications that may require a 
-high degree of drift of droplets to reach a target area in remote locations. These drones can spray potentially up to 80 acres in a day's work.
-
-In summary, drones could be more environmentally friendly than doing the same spraying procedure on foot, and are likely to be a lot more accurate due to the ability 
-to spray from a fully-vertical angle.
-
-<b>Adoption of best practices</b>
-
-The city of Chicago can aim to reduce spraying target areas by adopting guidelines from tropical countries like [Singapore](https://www.nea.gov.sg/dengue-zika/stop-dengue) that have proven to be successful
-in combatting mosquito-borne viruses. For example, this could involve active on-the-ground checks of homes and premises for mosquito habitats, where public officers 
-provide advice on steps you can take to prevent mosquito breeding and impose penalties if premises are found with mosquito breeding.
-
-Through automation and more efficient mosquito vector control processes, we can reduce the cost of spraying, 
-enabling the city of Chicago to save human lives and prevent further outbreaks of the West Nile Virus.
 
 ## Data Dictionary
 | Name                   | Dataset    | Type     | Description                                                                                                                                                                                                                                                  |
