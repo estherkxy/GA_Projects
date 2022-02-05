@@ -4,13 +4,18 @@
 
 ## Introduction
 
-The West Nile Virus (WNV) has been a serious problem for the United States since 1999. The [CDC](https://www.cdc.gov/westnile/index.html) has acknowledged it as the leading cause of mosquito-borne disease in the continental United States. However, there are no vaccines to prevent or medications to treat WNV in people -- according to the CDC, 1 in 5 people who are infected develop a fever and other symptoms, while 1 out of 150 infected people develop a serious, sometimes fatal, illness.
+### Problem Statement
 
-In Illinois, the [West Nile virus was first identified in September 2001](https://www.dph.illinois.gov/topics-services/diseases-and-conditions/west-nile-virus) when laboratory tests confirmed its presence in two dead crows found in the Chicago area. The following year, the state's first human cases and deaths from West Nile disease were recorded and all but two of the state's 102 counties eventually reported a positive human, bird, mosquito or horse. By the end of 2002, Illinois had counted more human cases (884) and deaths (64) than any other state in the United States.
+According to the [CDC]( https://www.cdc.gov/westnile/index.html#:~:text=About%201%20in%205%20people,pants%20to%20prevent%20mosquito%20bites), West Nile virus (WNV) is the leading cause of mosquito-borne disease in the continental United States. It is acknowledged as the leading cause of mosquito-borne disease in the continental United States. According to the CDC, 1 in 5 people who are infected develop a fever and other symptoms, while 1 out of 150 infected people develop a serious, sometimes fatal, illness. 
 
-Since then, Illinois and more specifically Chicago, has continued to suffer from multiple outbreaks of the West Nile Virus. From 2005 to 2016, a total of 1,371 human WNV cases were [reported](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0227160) within Illinois. Out of these total reported cases, 906 cases (66%) were from the Chicago region (Cook and DuPage Counties). 
+In Illinois, West Nile virus was [first identified in September 2001](https://dph.illinois.gov/topics-services/diseases-and-conditions/west-nile-virus.html) when laboratory tests confirmed its presence in two dead crows found in the Chicago area. The following year, the state's first human cases and deaths from West Nile disease were recorded and all but two of the state's 102 counties eventually reported a positive human, bird, mosquito or horse. By the end of 2002, Illinois had counted more human cases (884) and deaths (64) than any other state in the United States.
 
-With this in mind, <b>our project is aimed at predicting outbreaks of the West Nile Virus</b>. This will help the City of Chicago and Chicago Department of Public Health (CDPH) more efficiently and effectively allocate resources towards preventing transmission of this potentially deadly virus. Specifically, our model will use a combination of weather, time and location features to predict the presence of WNV within mosquito traps set up throughout Chicago. 
+To date, there have been no licensed vaccines for humans to prevent or treat WNV, although there are vaccines developed and approved for use in [horses](https://www.niaid.nih.gov/diseases-conditions/wnv-vaccines#:~:text=Currently%2C%20there%20is%20no%20licensed,approved%20for%20use%20in%20horses.) in 2005.
+
+In view of this, our project aims to predict occurrence of WNV given time, location, and mosquito species. This will help the City of Chicago and Chicago Department of Public Health (CDPH) more efficiently allocate resources towards preventing transmission of this potentially deadly virus. 
+
+We will also aim to determine where and when to deploy pesticides throughout the city, to maximise pesticide effectiveness and minimise spending.
+
 
 ## Executive Summary
 
