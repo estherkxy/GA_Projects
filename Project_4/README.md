@@ -147,11 +147,22 @@ As such, it seems that it is more cost-efficient to conduct more mosquito sprayi
 
 To conclude our cost-benefit analysis, we have evidence that despite some inadequate sprayings done in terms of location, overall, we can still see that spraying does in fact still help curb WNV in general. Considering the fact that medical costs are much higher than spraying costs, and that there are currently no specific medications to treat patients with WNV, it is thus important to make sure spraying operations are carried out at critical locations. Even though there will be higher spendage in spraying operations, increased spraying operations would most likely reduce the number of WNV occurences and patients, which would ultimately reduce medical costs and therefore overall costs.
 
+However, after more analysis, we realised that while it is economically beneficial to spray as a preventive measure, the way it was conducted was not the most cost efficient. This is because some areas were inadequately sprayed.
+
 We will next proceed with recommendations based on our cost benefit analysis and predictive model.
 
 ## Recommendations
 
+As mentioned earlier, it seems to be economically beneficial to increase the spray frequencies/area of spraying as it helps to reduce the probability of the presence of the virus. However, we concluded that the method used was not cost efficient as there were outbreak areas that were still inadequately sprayed and areas that did not require a higher frequency of spraying. As such, we then dove deeper to try to determine which areas were predicted to have a large outbreak of the virus. This can then assist in evaluating and determining the need for an increased frequency of targeted spraying. 
 
+
+## Model Limitations
+
+As with any other models, our model does have some limitations which may affect our ability to generate a model with more ideal results. 
+
+For starters, our dataset is limited to Chicago and it may not be as relevant to other cities/countries. This is especially so with cities/ countries with very different climates. This is because the mosquito behaviour may not be the same as adaptation could have occurred which may then produce poor results as our model is highly dependent on the temperature and weather features. 
+
+In addition, the dataset received for the trap locations was only limited to alternate years betwwen 2007 - 2014. The dataset received for the spray information was even more limited with only 2 years worth of data received (2011 & 2013). Having consecutive years for training the model may produce one with more well rounded results. 
 
 
 
