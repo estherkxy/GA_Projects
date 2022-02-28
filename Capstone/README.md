@@ -29,7 +29,7 @@ Both datasets consists of Apple related tweets (@apple, #AAPL etc.) as well as t
 In addition to the conversion to binary datasets, other basic data cleaning and pre-processing were also done. Including using a [tweet processor library](https://pypi.org/project/tweet-preprocessor/) which makes it very easy to clean tweets. 
 
 After cleaning and processing the data, different models were trained and tested for comparison to determine which is the best performing model. 
-To have something to compare our models against, we can use the normalized value of y which is the percentage of y within our target. This represents the simplest model we can use, where assigning a post randomly will give us a 65% chance of classifying it as a non-negative tweet. This will serve as a baseline for our model evaluation. This also shows that our model is imbalanced. 
+To have something to compare our models against, we can use the normalized value of y which is the percentage of y within our target. This represents the simplest model we can use, where assigning a post randomly will give us a 65% chance of classifying it as a non-negative tweet. This will serve as a baseline for our model evaluation. This also shows that our dataset is imbalanced. 
 
 <img src='./data/images/baseline.png' content-align="center">
 
