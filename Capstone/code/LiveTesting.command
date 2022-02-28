@@ -24,7 +24,7 @@ else:
     print('No GPU available, using the CPU instead.')
     device = torch.device("cpu")
 
-output_dir = '/Users/estherkhor/Desktop/GA-DSI/DSI-SG-26-workspace/capstone/data/BERT with cleaned tweets' 
+output_dir = '../data/BERT with cleaned tweets' 
 
 model = BertForSequenceClassification.from_pretrained(output_dir)
 tokenizer = BertTokenizer.from_pretrained(output_dir)
