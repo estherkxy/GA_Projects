@@ -72,6 +72,12 @@ As we go further indepth in social media analytics, we will realise that social 
 In this day and age where anyone can post what they think anywhere anytime, it is definitely of utmost importance to be on the ball with social listening and then addressing any potential issues by nipping it in the bud before it aggravates. As the saying goes, prevention is always better than cure.
 
 
+## Data Dictionary
 
+|Feature|Type|Dataset|Description|
+|---|---|---|---|
+|sentiment|`bool`|train/test|Sentiment of tweet: 0 for Non-negative tweets; 1 for Negative tweets|
+|date|`obj`|train|Date & time of tweet|
+|text|`obj`|train/test|Tweet posted|
 
 
