@@ -59,6 +59,11 @@ A comparison between the models was done with the results shown below:
 
 Based on the table above, the top performing model was the BERT model which had superior scores in almost all categories only losing out very slightly in recall and specificity scores. 
 
+From the results of the other models, there some takeaways to be noted:
+- When comparing the two word embedding models, the Word2Vec model did alot worse. This is likely due to the fact that it was pre-trained on an external source (gensim library) unlike the GRU word embedding model which was pretrained on the training dataset. 
+- While the machine learning model fared better than the two word embedding deep learning models, the results were still far worse than the BERT model. 
+- One possible reason for the word embedding models to have poorer results as compared to the machine learning model was that further improvements to the models can be made such as using a bi-directional GRU or LSTM network instead. 
+
 ## Model Limitations
 
 <img src='./data/images/badpredictions.png' content-align="center">
