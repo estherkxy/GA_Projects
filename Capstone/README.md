@@ -68,7 +68,7 @@ From the results of the other models, there some takeaways to be noted:
 
 <img src='./data/images/badpredictions.png' content-align="center">
 
-As seen above, we can see that BERT model struggles slightly with identifying the overall tone of tweets that have both positive and negative tones with the model showing a slight tendency to predict the tweet as negative rather than positive. This is seen in the slightly lower score in specificity (true negative rate) as compared to sensitivity (true positive rate). However, I would also note that the scores are all well above 95% and this indicates that the model has generally done well in predicting the sentiment of tweets in general with a few minor exceptions and is a good model overall. 
+As seen above, we can see that BERT model struggles slightly with identifying the overall tone of tweets that have both positive and negative tones with the model showing a slight tendency to predict the tweet as non-negative rather than negative. This is seen in the slightly lower score in specificity (true negative rate) as compared to sensitivity (true positive rate). However, I would also note that the scores are all well above 95% and this indicates that the model has generally done well in predicting the sentiment of tweets in general with a few minor exceptions and is a good model overall. 
 
 ## Final Thoughts
 
